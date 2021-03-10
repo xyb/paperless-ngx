@@ -24,6 +24,7 @@ import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { first, takeUntil, switchMap, map, debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { PaperlessDocumentSuggestions } from 'src/app/data/paperless-document-suggestions';
 import { FILTER_FULLTEXT_MORELIKE } from 'src/app/data/filter-rule-type';
+import { SplitMergeService } from 'src/app/services/split-merge.service';
 
 @Component({
   selector: 'app-document-detail',
@@ -92,7 +93,8 @@ export class DocumentDetailComponent implements OnInit, OnDestroy, DirtyComponen
     private documentListViewService: DocumentListViewService,
     private documentTitlePipe: DocumentTitlePipe,
     private toastService: ToastService,
-    private settings: SettingsService) {
+    private settings: SettingsService,
+    private splitMergeService: SplitMergeService) {
       this.titleSubject.pipe(
         debounceTime(200),
         distinctUntilChanged(),
@@ -285,6 +287,11 @@ export class DocumentDetailComponent implements OnInit, OnDestroy, DirtyComponen
 
   moreLike() {
     this.documentListViewService.quickFilter([{rule_type: FILTER_FULLTEXT_MORELIKE, value: this.documentId.toString()}])
+  }
+
+  splitMerge() {
+    this.splitMergeService.addDocument(this.document)
+    this.router.navigate(["split_merge"])
   }
 
   hasNext() {

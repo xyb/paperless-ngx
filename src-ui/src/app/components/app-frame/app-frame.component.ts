@@ -12,6 +12,7 @@ import { DocumentDetailComponent } from '../document-detail/document-detail.comp
 import { Meta } from '@angular/platform-browser';
 import { DocumentListViewService } from 'src/app/services/document-list-view.service';
 import { FILTER_FULLTEXT_QUERY } from 'src/app/data/filter-rule-type';
+import { SplitMergeService } from 'src/app/services/split-merge.service';
 
 @Component({
   selector: 'app-app-frame',
@@ -27,7 +28,8 @@ export class AppFrameComponent {
     private searchService: SearchService,
     public savedViewService: SavedViewService,
     private list: DocumentListViewService,
-    private meta: Meta
+    private meta: Meta,
+    private splitMergeService: SplitMergeService
     ) { }
 
   versionString = `${environment.appTitle} ${environment.version}`
@@ -109,6 +111,10 @@ export class AppFrameComponent {
         }
       }
     })
+  }
+
+  get splitMergeToolVisible() {
+    return this.splitMergeService.hasDocuments()
   }
 
   get displayName() {

@@ -12,12 +12,14 @@ import { TagListComponent } from './components/manage/tag-list/tag-list.componen
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import {DocumentAsnComponent} from "./components/document-asn/document-asn.component";
 import { DirtyFormGuard } from './guards/dirty-form.guard';
+import { SplitMergeComponent } from './components/split-merge/split-merge.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
   {path: '', component: AppFrameComponent, children: [
     {path: 'dashboard', component: DashboardComponent },
     {path: 'documents', component: DocumentListComponent },
+    {path: 'split_merge', component: SplitMergeComponent },
     {path: 'view/:id', component: DocumentListComponent },
     {path: 'documents/:id', component: DocumentDetailComponent },
     {path: 'asn/:id', component: DocumentAsnComponent },
