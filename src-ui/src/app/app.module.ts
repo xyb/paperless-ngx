@@ -65,6 +65,7 @@ import { ColorSliderModule } from 'ngx-color/slider';
 import { ColorComponent } from './components/common/input/color/color.component';
 import { DocumentAsnComponent } from './components/document-asn/document-asn.component';
 import { SplitMergeComponent } from './components/split-merge/split-merge.component';
+import { DndModule } from 'ngx-drag-drop';
 
 import localeCs from '@angular/common/locales/cs';
 import localeDa from '@angular/common/locales/da';
@@ -161,7 +162,8 @@ registerLocaleData(localeSv)
     InfiniteScrollModule,
     PdfViewerModule,
     NgSelectModule,
-    ColorSliderModule
+    ColorSliderModule,
+    DndModule
   ],
   providers: [
     DatePipe,
