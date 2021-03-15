@@ -32,6 +32,9 @@ export class DocumentCardSmallComponent implements OnInit {
   @Output()
   clickDocumentType = new EventEmitter<number>()
 
+  @Input()
+  simpleCard: boolean = false
+
   moreTags: number = null
 
   @ViewChild('popover') popover: NgbPopover
@@ -93,6 +96,6 @@ export class DocumentCardSmallComponent implements OnInit {
   }
 
   mouseLeaveCard() {
-    this.popover.close()
+    this.popover?.close()
   }
 }
