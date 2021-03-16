@@ -67,6 +67,7 @@ import { DocumentAsnComponent } from './components/document-asn/document-asn.com
 import { SplitMergeComponent } from './components/split-merge/split-merge.component';
 import { DndModule } from 'ngx-drag-drop';
 import { DocumentChooserComponent } from './components/common/document-chooser/document-chooser.component';
+import { PageChooserComponent } from './components/common/page-chooser/page-chooser.component';
 
 import localeCs from '@angular/common/locales/cs';
 import localeDa from '@angular/common/locales/da';
@@ -151,7 +152,8 @@ registerLocaleData(localeSv)
     ColorComponent,
     DocumentAsnComponent,
     SplitMergeComponent,
-    DocumentChooserComponent
+    DocumentChooserComponent,
+    PageChooserComponent
   ],
   imports: [
     BrowserModule,
