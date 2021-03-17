@@ -52,3 +52,7 @@ export interface PaperlessDocument extends ObjectWithId {
     __search_hit__?: SearchHit
 
 }
+
+export interface PaperlessDocumentPart extends PaperlessDocument {
+  pages: number[]
+}
