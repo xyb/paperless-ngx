@@ -33,6 +33,7 @@ import { DocumentCardSmallComponent } from './components/document-list/document-
 import { BulkEditorComponent } from './components/document-list/bulk-editor/bulk-editor.component';
 import { NgxFileDropModule } from 'ngx-file-drop';
 import { TextComponent } from './components/common/input/text/text.component';
+import { InputDebounceComponent } from './components/common/input/debounce/input-debounce.component';
 import { SelectComponent } from './components/common/input/select/select.component';
 import { CheckComponent } from './components/common/input/check/check.component';
 import { SaveViewConfigDialogComponent } from './components/document-list/save-view-config-dialog/save-view-config-dialog.component';
@@ -129,6 +130,7 @@ registerLocaleData(localeSv)
     DocumentCardSmallComponent,
     BulkEditorComponent,
     TextComponent,
+    InputDebounceComponent,
     SelectComponent,
     CheckComponent,
     SaveViewConfigDialogComponent,
