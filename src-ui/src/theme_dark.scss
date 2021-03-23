@@ -94,6 +94,19 @@ $border-color-dark-mode: #47494f;
         color: $text-color-dark-mode !important;
       }
     }
+
+    .nav-link.bg-light {
+      border-bottom-color: $border-color-dark-mode !important;
+
+      &:not(.active):hover {
+        background-color: $bg-dark-mode !important;
+      }
+
+      &.active {
+        background-color: $bg-light-dark-mode !important;
+        border-bottom-color: $bg-light-dark-mode !important;
+      }
+    }
   }
 
   .dropdown-menu {
