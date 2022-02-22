@@ -21,7 +21,7 @@ $paperless-card-breakpoints: (
     @media(min-width: $width) {
       > * {
         flex: 0 0 auto;
-        width: 100% / $n_cols;
+        width: calc(100% / $n_cols);
       }
     }
   }

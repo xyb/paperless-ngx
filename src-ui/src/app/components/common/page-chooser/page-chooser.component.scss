@@ -15,21 +15,26 @@
     justify-content: space-between;
     align-items: flex-start;
 
-    .page:not(.disabled) {
-      margin: 2px 3% 2rem !important;
-      cursor: pointer;
+    .page {
+      border: none;
 
-      .textLayer {
-        pointer-events: none;
-      }
+      &:not(.disabled) {
+        margin: 2px 3% 2rem !important;
+        cursor: pointer;
 
-      &:hover {
         .textLayer {
-          background-color: $primary !important;
-          opacity: 0.5;
+          pointer-events: none;
+        }
+
+        &:hover {
+          .textLayer {
+            background-color: $primary !important;
+            opacity: 0.5;
+          }
         }
       }
     }
+
   }
 
   &:not(.splitting) {
@@ -67,7 +72,7 @@
         color: #abb2bf; // dark mode text color
         position: absolute;
         top: 0;
-        right: -2rem;
+        right: -1rem;
         writing-mode: vertical-lr;
         padding: 0.5rem;
         text-align: center;

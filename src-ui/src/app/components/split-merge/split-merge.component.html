@@ -6,7 +6,7 @@
       </svg>&nbsp;<ng-container i18n>Add Documents</ng-container>
     </button>
   </div>
-  <div class="btn-group ml-2 mt-2 mt-sm-0">
+  <div class="btn-group ms-2 mt-2 mt-sm-0">
     <button type="button" class="btn btn-sm btn-outline-primary"
       [popoverTitle]="optionsTitle" [autoClose]="'outside'" [ngbPopover]="optionsPopoverBody" popoverClass="shadow" #optionsPopover="ngbPopover">
       <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
@@ -15,37 +15,35 @@
     </button>
     <ng-template #optionsTitle>
       <ng-container i18n>Options</ng-container>
-      <button type="button" class="close" aria-label="Close" (click)="optionsPopover.close()">
-        <span aria-hidden="true">&times;</span>
-      </button>
+      <button type="button" class="btn-close" aria-label="Close" (click)="optionsPopover.close()"></button>
     </ng-template>
     <ng-template #optionsPopoverBody>
       <div class="form-group row text-dark">
         <label for="source_options" class="col-sm-3 col-form-label pt-0" i18n>Delete source documents</label>
         <div class="col-sm-9">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="source_options-delete" [(ngModel)]="delete_source_documents">
-            <label class="custom-control-label" for="source_options-delete" [class.text-danger]="delete_source_documents"><ng-container i18n>Delete</ng-container><br/><small [class.text-muted]="!delete_source_documents" i18n>Source documents will be immediately deleted.</small></label>
+          <div class="form-check form-switch">
+            <input type="checkbox" class="form-check-input" id="source_options-delete" role="switch" [(ngModel)]="delete_source_documents" [checked]="delete_source_documents">
+            <label class="form-check-label" for="source_options-delete" [class.text-danger]="delete_source_documents"><ng-container i18n>Delete</ng-container><br/><small [class.text-muted]="!delete_source_documents" i18n>Source documents will be immediately deleted.</small></label>
           </div>
         </div>
       </div>
       <div class="form-group mt-4 row text-dark">
         <label for="metadata_options" class="col-sm-3 col-form-label pt-0" i18n>Output document metadata</label>
         <div class="col-sm-9">
-          <div class="custom-control custom-radio">
-            <input type="radio" id="metadata_setting-copy" name="metadata_setting" class="custom-control-input" [value]="splitMergeMetadata.COPY_FIRST" [(ngModel)]="metadata_setting">
-            <label class="custom-control-label" for="metadata_setting-copy"><ng-container i18n>First document</ng-container><br/><small class="text-muted" i18n>Metadata will be copied from first document.</small></label>
+          <div class="form-check">
+            <input type="radio" id="metadata_setting-copy" name="metadata_setting" class="form-check-input" [value]="splitMergeMetadata.COPY_FIRST" [(ngModel)]="metadata_setting">
+            <label class="form-check-label" for="metadata_setting-copy"><ng-container i18n>First document</ng-container><br/><small class="text-muted" i18n>Metadata will be copied from first document.</small></label>
           </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" id="metadata_setting-redo" name="metadata_setting" class="custom-control-input" [value]="splitMergeMetadata.REDO" [(ngModel)]="metadata_setting">
-            <label class="custom-control-label" for="metadata_setting-redo"><ng-container i18n>Redo</ng-container><br/><small class="text-muted" i18n>Metadata detection will be re-run on new document.</small></label>
+          <div class="form-check custom-radio">
+            <input type="radio" id="metadata_setting-redo" name="metadata_setting" class="form-check-input" [value]="splitMergeMetadata.REDO" [(ngModel)]="metadata_setting">
+            <label class="form-check-label" for="metadata_setting-redo"><ng-container i18n>Redo</ng-container><br/><small class="text-muted" i18n>Metadata detection will be re-run on new document.</small></label>
           </div>
         </div>
       </div>
     </ng-template>
   </div>
 
-  <div class="btn-group ml-2 mr-2 mr-sm-5 mt-2 mt-sm-0">
+  <div class="btn-group ms-2 me-2 me-sm-5 mt-2 mt-sm-0">
     <button class="btn btn-sm btn-outline-primary" i18n-title title="Save" (click)="save()" [disabled]="splitMergeService.getDocuments().length < 1">
       <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
         <use xlink:href="assets/bootstrap-icons.svg#check-circle" />
@@ -53,7 +51,7 @@
     </button>
   </div>
 
-  <div class="btn-group ml-sm-5 mt-2 mt-sm-0">
+  <div class="btn-group ms-sm-5 mt-2 mt-sm-0">
     <button class="btn btn-sm btn-outline-danger" i18n-title title="Cancel" (click)="cancel()">
       <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
         <use xlink:href="assets/bootstrap-icons.svg#slash-circle" />
@@ -94,24 +92,20 @@
                       <use xlink:href="assets/bootstrap-icons.svg#trash" />
                     </svg><span class="d-none d-xl-inline">&nbsp;<ng-container i18n>Remove</ng-container></span>
                   </button>
-                  <button class="btn btn-sm btn-outline-primary ml-3 flex-fill" i18n-title title="Split" (click)="chooseSplit(d, i)">
+                  <button class="btn btn-sm btn-outline-primary ms-3 flex-fill" i18n-title title="Split" (click)="chooseSplit(d, i)">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
                       <use xlink:href="assets/bootstrap-icons.svg#scissors" />
                     </svg><span class="d-none d-xl-inline">&nbsp;<ng-container i18n>Split</ng-container></span>
                   </button>
                 </div>
                 <div class="input-group input-group-sm w-100 mt-3">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text"><ng-container i18n>Pages</ng-container>:</div>
-                  </div>
+                  <div class="input-group-text"><ng-container i18n>Pages</ng-container>:</div>
                   <app-input-debounce delay="500" classes="form-control-sm" placeholder="All" ngbTooltip="e.g. 1-3,5" pattern="[0-9\,\-]" [inputValue]="formatPages(d.pages)" (value)="pagesFieldChange($event, d, i)"></app-input-debounce>
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="button" i18n-title title="Select Pages" (click)="choosePages(d, i)">
-                      <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
-                        <use xlink:href="assets/bootstrap-icons.svg#pencil" />
-                      </svg><span class="d-none d-xl-inline">&nbsp;<ng-container i18n>Select Pages</ng-container></span>
-                    </button>
-                  </div>
+                  <button class="btn btn-outline-primary" type="button" i18n-title title="Select Pages" (click)="choosePages(d, i)">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor">
+                      <use xlink:href="assets/bootstrap-icons.svg#pencil" />
+                    </svg><span class="d-none d-xl-inline">&nbsp;<ng-container i18n>Select Pages</ng-container></span>
+                  </button>
                 </div>
               </div>
             </div>
@@ -149,15 +143,11 @@
 
 <ng-template #previewHeader let-index>
   <div class="d-flex mt-2 p-2 w-100 justify-space-between">
-    <h6 class="text-muted mt-1" [class.mx-auto]="previewNumPages[index] == undefined" [class.mr-auto]="previewNumPages[index] !== undefined" i18n>Preview</h6>
+    <h6 class="text-muted mt-1" [class.mx-auto]="previewNumPages[index] == undefined" [class.me-auto]="previewNumPages[index] !== undefined" i18n>Preview</h6>
     <div *ngIf="previewNumPages[index] !== undefined" class="input-group input-group-sm w-auto">
-      <div class="input-group-prepend">
-        <div class="input-group-text" i18n>Page</div>
-      </div>
+      <div class="input-group-text" i18n>Page</div>
       <input class="form-control flex-grow-0 w-auto" type="number" min="1" [max]="previewNumPages[index]" [(ngModel)]="previewCurrentPages[index]" />
-      <div class="input-group-append">
-        <div class="input-group-text" i18n>of {{previewNumPages[index]}}</div>
-      </div>
+      <div class="input-group-text" i18n>of {{previewNumPages[index]}}</div>
     </div>
   </div>
   <div *ngIf="loading" class="spinner-border" role="status">

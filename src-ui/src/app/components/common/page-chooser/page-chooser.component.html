@@ -1,8 +1,6 @@
 <div class="modal-header">
   <h4 class="modal-title" id="modal-basic-title">{{title}}: {{document.title}}</h4>
-  <button type="button" class="close" aria-label="Close" (click)="cancelClicked()">
-    <span aria-hidden="true">&times;</span>
-  </button>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancelClicked()"></button>
 </div>
 <div class="modal-body">
   <pdf-viewer class="page-chooser-viewer" [class.splitting]="splitting" [src]="previewUrl" [original-size]="false" [zoom]=".25" [autoresize]="true" [show-borders]="true" [show-all]="true" [render-text-mode]="2" (page-rendered)="afterPageRendered($event)" (after-load-complete)="pdfLoaded($event)"></pdf-viewer>

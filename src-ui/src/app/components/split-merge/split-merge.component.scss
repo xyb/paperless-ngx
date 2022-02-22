@@ -37,6 +37,11 @@
   .spinner-border {
     margin-top: 40%;
   }
+
+  pdf-viewer {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .split-document-preview ::ng-deep .ng2-pdf-viewer-container {
@@ -110,7 +115,9 @@ app-input-debounce {
 ::ng-deep .popover {
   min-width: 30rem;
 
-  .close {
-    line-height: 0.7;
+  .btn-close {
+    position: absolute;
+    top: .2rem;
+    right: .2rem;
   }
 }
