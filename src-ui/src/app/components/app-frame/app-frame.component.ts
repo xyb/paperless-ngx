@@ -41,6 +41,7 @@ export class AppFrameComponent {
   ) {
     this.remoteVersionService
       .checkForUpdates()
+      .pipe(first())
       .subscribe((appRemoteVersion: AppRemoteVersion) => {
         this.appRemoteVersion = appRemoteVersion
       })
